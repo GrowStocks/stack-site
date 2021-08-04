@@ -1,0 +1,12 @@
+@use '~@growstocks/stack/Components/SCButton';
+
+@include SCButton.render(
+    $shape-theme: (
+        'shape': pill
+    ),
+    $type: (
+        'default',
+        'outlined',
+        'filled'
+    )
+);

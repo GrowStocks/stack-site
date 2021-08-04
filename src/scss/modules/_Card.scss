@@ -1,0 +1,10 @@
+@use '~@growstocks/stack/Components/SCCard';
+@use './../themes/card-theme' as theme;
+
+@include SCCard.render(
+    $color-theme: theme.$card-theme
+);
+
+.sc-card__info__subtitle {
+    white-space: normal !important;
+}

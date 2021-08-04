@@ -1,0 +1,96 @@
+@use '~@growstocks/stack/Core/Theme';
+@use '~@growstocks/stack/Core/Typography';
+@use '~@growstocks/stack/Core/Tools';
+@use '~@growstocks/stack/Components/SCTextField';
+
+@use './abstracts/mixins' as m;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+$_screen-sizes: (
+    'small': 320px,
+    'medium': 540px,
+    'large': 890px,
+);
+
+:root {
+    @include Theme.config(
+        #232323,
+        #d49a10,
+        $_screen-sizes,
+        $surface: #181818,
+        $on-surface: #fff
+    );
+}
+
+@include Typography.config(
+    $global-font: 'Inter'
+);
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--sc-theme--surface);
+    color: var(--sc-theme--on-surface);
+
+    @include m.scrollbar(var(--sc-theme--surface));
+}
+
+.wrap--content {
+    height: 100%;
+    padding: 1.5em 0 1em 0;
+    width: calc(100% - 20px);
+    max-width: 1077px;
+    margin: 0 auto;
+
+    @media (min-width: Theme.get-breakpoint('large')) {
+        padding: 3em 0;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-gap: 10px;
+    margin-bottom: 1.7em;
+
+    @media (min-width: Theme.get-breakpoint('medium')) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: Theme.get-breakpoint('large')) {
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-bottom: 4em;
+    }
+}
+
+.flex {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    a {
+        @include Tools.prefix(transition, all 0.2s ease);
+
+        &:hover {
+            filter: brightness(80%);
+        }
+
+        .company__logo {
+            width: 72px;
+            height: auto;
+            border-radius: 50%;
+            margin: 10px 20px;
+        }
+    }
+}
+
+.title {
+    margin: 0 0 20px 5px;
+    text-align: center;
+}
+
+@include SCTextField.render();

@@ -1,0 +1,3 @@
+@use '~@growstocks/stack/Components/SCNavbar';
+
+@include SCNavbar.render($nav-contents: 3);

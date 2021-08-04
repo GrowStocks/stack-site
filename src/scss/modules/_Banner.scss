@@ -1,0 +1,20 @@
+.banner {
+    height: 100%;
+    background: linear-gradient(45deg, rgba(8,21,40,1) 25%, rgba(66,98,148,1) 100%);
+    padding: 4rem 0 2rem 0;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    .banner__text {
+        max-width: min(200px, 100%);
+    }
+
+    .banner__action {
+        margin: 10px 0 0 0;
+    }
+}
